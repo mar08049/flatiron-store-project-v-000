@@ -1,3 +1,4 @@
+require 'pry'
 class Cart < ActiveRecord::Base
 
   has_many :line_items, dependent: :destroy
@@ -29,7 +30,7 @@ class Cart < ActiveRecord::Base
     end
   end
 
-  def checkout
+  def checkout_cart
     self.update(status: "submitted")
     self.subtract
   end
